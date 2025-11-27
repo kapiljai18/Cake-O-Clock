@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+    <title>Cake O'Clock | Sign Up</title>
+    <style>
+      .form-container {
+        max-width: 400px;
+        margin: 10px auto;
+        padding: 30px;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 8px rgba(234, 4, 4, 0.904);
+        border-radius: 20px;
+      }
+      .form-container h2 {
+        margin-bottom: 25px;
+      }
+
+      /* Styling for the default state of the Sign Up button */
+      .btn-signup {
+        background-color: #f48fb1; /* A standard pink color */
+        border-color: #f48fb1;
+        color: white;
+        transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+      }
+
+      /* Styling for the hover state */
+      .btn-signup:hover {
+        background-color: #e91e63; /* A darker shade of pink on hover */
+        border-color: #e91e63;
+        color: white; /* Keeps text white */
+        transform: translateY(-1px); /* Optional: slight lift effect */
+      }
+
+      /* Optional: Keep the focus state consistent for accessibility */
+      .btn-signup:focus {
+        box-shadow: 0 0 0 0.25rem rgba(244, 143, 177, 0.5); /* Use button color for focus ring */
+      }
+
+      /* Styling for the default state of the link */
+      .link-hover-effect {
+        color: #4f6c89; /* Dark grey color */
+        text-decoration: none; /* Remove underline by default */
+        transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transition */
+      }
+
+      /* Styling for the hover state */
+      .link-hover-effect:hover {
+        color: #e91e63; /* Primary pink color on hover */
+        text-decoration: underline; /* Add underline on hover for visibility */
+      }
+    </style>
+  </head>
+  <body>
+    <section class="navbar-section">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+            <span>Cake O'Clock</span>
+          </a>
+
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="products.html">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="offers.html">Special Offers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="testimonials.html">Testimonials</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="signin.html">SignIn</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- <div class="d-flex align-items-center">
+            <a
+              href="cart.html"
+              class="btn position-relative"
+              style="background: transparent; border: none; margin-right: 15px"
+            >
+              <i class="fa fa-shopping-cart" style="font-size: 20px"></i>
+              <span
+                class="position-absolute top-20 start-90 translate-middle badge rounded bg-danger"
+              >
+                0
+                <span class="visually-hidden">cart items</span>
+              </span>
+            </a>
+
+            <a href="signin.html" class="ms-3 nav-link" style="padding: 0">
+              <i class="fa-solid fa-user" style="font-size: 20px"></i>
+            </a>
+          </div> -->
+        </div>
+      </nav>
+    </section>
+
+    <div class="container">
+      <div class="form-container">
+        <h2 class="text-center">Create Account</h2>
+        <form id="signupform">
+          <div class="mb-3">
+            <label for="uname" class="form-label">Username:</label>
+            <input type="text" class="form-control" id="uname" required />
+          </div>
+          <div class="mb-3">
+            <label for="uemail" class="form-label">Email address:</label>
+            <input
+              type="email"
+              class="form-control"
+              id="uemail"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="upass" class="form-label">Password:</label>
+            <input
+              type="password"
+              class="form-control"
+              id="upass"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="ucpass" class="form-label"
+              >Confirm Password:</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="ucpass"
+              required
+            />
+          </div>
+          <button type="submit" class="btn w-100 btn-signup">Sign Up</button>
+        </form>
+        <p class="text-center mt-3">
+          Already have an account?
+          <a href="signin.html" class="link-hover-effect">Sign In</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- <footer class="bg-dark text-light pt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h5>The Royal Bakery</h5>
+            <p>
+              We create delightful cakes for every occasion. Visit us to sweeten
+              your moments with our handmade and fresh cakes.
+            </p>
+            <ul class="list-unstyled social-links">
+              <li class="d-inline me-2">
+                <a href="#" class="text-light"
+                  ><i class="fab fa-facebook"></i
+                ></a>
+              </li>
+              <li class="d-inline me-2">
+                <a href="#" class="text-light"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </li>
+              <li class="d-inline">
+                <a href="#" class="text-light"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-4">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="products.html" class="text-light">Products</a></li>
+              <li><a href="about.html" class="text-light">About Us</a></li>
+              <li>
+                <a href="offers.html" class="text-light">Special Offers</a>
+              </li>
+              <li>
+                <a href="testimonials.html" class="text-light">Testimonials</a>
+              </li>
+              <li><a href="contact.html" class="text-light">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-4">
+            <h5>Contact Us</h5>
+            <p>
+              <i class="fas fa-map-marker-alt me-2"></i>123 Cake Street, Sweet
+              City
+            </p>
+            <p><i class="fas fa-phone me-2"></i>(123) 456-7890</p>
+            <p><i class="fas fa-envelope me-2"></i>info@theroyalbakery.com</p>
+          </div>
+        </div>
+        <hr class="bg-light" />
+        <div class="text-center py-3">
+          <p class="mb-0">© 2024 The Royal Bakery. All rights reserved.</p>
+        </div>
+      </div>
+    </footer> -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    
+    <script>
+      document.getElementById("signupform").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Fetch values using the correct IDs defined in your HTML
+        let new_username = document.getElementById("uname").value; 
+        let new_email = document.getElementById("uemail").value; 
+        let new_password = document.getElementById("upass").value; 
+        let confirm_password = document.getElementById("ucpass").value;
+
+        // 1. Password Confirmation Check
+        if (new_password !== confirm_password) {
+            alert("Sign Up Failed: Passwords do not match!");
+            return; 
+        }
+
+        // 2. Retrieve existing users or initialize an empty array
+        // Local Storage key is 'registeredUsers' to hold an array of users
+        let users = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+
+        // 3. Check if the username or email already exists
+        const userExists = users.some(user => user.username === new_username || user.email === new_email);
+
+        if (userExists) {
+            alert("Sign Up Failed: Username or Email already exists!");
+            return; 
+        }
+
+        // 4. Create the new user object
+        const newUser = {
+            username: new_username,
+            password: new_password,
+            email: new_email 
+        };
+
+        // 5. Add the new user to the list
+        users.push(newUser);
+
+        // 6. Save the updated list back to localStorage
+        localStorage.setItem('registeredUsers', JSON.stringify(users));
+
+        // 7. Store the current user's status (optional, but good practice for immediate use)
+        localStorage.setItem('currentUser', JSON.stringify({ username: new_username, loggedIn: true }));
+
+        // 8. Provide feedback and redirect
+        alert("Sign Up Successful! Welcome to The Royal Bakery. Please sign in.");
+        
+        // Redirect to signin.html so the user can log in with their new credentials
+        window.location.href = "signin.html"; 
+      });
+    </script>
+    </body>
+</html>
