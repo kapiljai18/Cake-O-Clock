@@ -21,12 +21,18 @@
   </head>
   <body>
     <!-- Navbar section -->
-    <section class="navbar-section">
+     <section class="navbar-section">
       <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
           <a class="navbar-brand" href="index.html">
             <span>Cake O'Clock</span>
           </a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
 
           <div class="collapse navbar-collapse justify-content-center"
             id="navbarNav">
@@ -54,19 +60,20 @@
 
           <div class="d-flex align-items-center">
 
-            <a href="cartdash.html" class="btn position-relative"
-              style="background: transparent;border: none;"><i
+            <a href="cartdash.html" class="btn position-relative me-3"
+              style="background: transparent;border: none; padding: 0.5rem;"><i
                 class="fa fa-shopping-cart"
-                style="font-size: 20px;"></i>
+                style="font-size: 20px; color: #333;"></i>
               <span
-                class="position-absolute top-20 start-90 translate-middle badge rounded bg-danger">
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                style="font-size: 0.7em;">
                 0
                 <span class="visually-hidden">cart items</span>
               </span>
             </a>
 
-            <ul id="authContainer" class="navbar-nav flex-row">
-              </ul>
+            <div id="authContainer" class="dropdown">
+              </div>
 
           </div>
         </div>
@@ -235,41 +242,55 @@
           // Clear the simulated session data
           localStorage.removeItem('currentUser');
           // Redirect the user to index.html
-          window.location.href = homePage; 
+          window.location.href = homePage;
         };
 
         // Function to render the correct links based on login status
         const renderAuthLinks = () => {
           const currentUserData = localStorage.getItem('currentUser');
           let user = null;
-          
+
           try {
-              user = JSON.parse(currentUserData);
+            user = JSON.parse(currentUserData);
           } catch(e) {
-              user = null; // Parsing failed, treat as not logged in
+            user = null; // Parsing failed, treat as not logged in
           }
 
           if (user && user.loggedIn && user.username) {
-            // User is logged in: Use <li> and <a> with class nav-link for consistent styling
+            // User is logged in: Create a Dropdown Menu
+            // The d-flex and align-items-center ensure the icon and text are centered nicely
             authContainer.innerHTML = `
-                <a class="nav-link navbar-user-text" href="#">
-
-                    ${user.username}
-
-                </a>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" id="logoutLink">
-                        Logout
-                    </a>
-                </li>
+              <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: #333;">
+                <i class="fas fa-user-circle me-1" style="font-size: 20px;"></i>
+                <span class="username-text">${user.username}</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                <!-- <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                <li><hr class="dropdown-divider"></li> -->
+                <li><a class="dropdown-item" href="#" id="logoutLink">Logout</a></li>
+              </ul>
             `;
-            
+
             // Add event listener to the dynamically created logout link
-            document.getElementById('logoutLink').addEventListener('click', handleSignOut);
-            
+            const logoutLink = document.getElementById('logoutLink');
+            if (logoutLink) {
+              logoutLink.addEventListener('click', handleSignOut);
+            }
+
           } else {
-            // User is NOT logged in: Show nothing in this container
-            authContainer.innerHTML = '';
+            // User is NOT logged in: Show SignIn/SignUp links
+            // Use a list for proper spacing
+            authContainer.classList.remove('dropdown');
+            authContainer.innerHTML = `
+              <ul class="navbar-nav flex-row">
+                <li class="nav-item me-2">
+                  <a class="nav-link" href="signin.html">SignIn</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="signup.html">SignUp</a>
+                </li>
+              </ul>
+            `;
           }
         };
 
